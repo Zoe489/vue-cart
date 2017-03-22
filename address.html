@@ -55,7 +55,10 @@
             <div class="addr-list-wrap">
                 <div class="addr-list" >
                     <ul>
-                        <li v-for="(item,index) in filteredAddress" :class="{'check' : curIndex==index}" v-on:click="checkMethod(index)">
+                        <li
+                          v-for="(item,index) in filteredAddress"
+                          :class="{'check' : curIndex==index}"
+                          @click="checkMethod(index)">
                             <dl>
                                 <dt>{{item.userName}}</dt>
                                 <dd class="address">{{item.streetName}}</dd>
