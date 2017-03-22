@@ -2,20 +2,24 @@ Vue.filter("money",function(value,type){
   return "￥" + value.toFixed(2) + type;
 });
 var vm = new Vue({
-  el:".container",
-  data:{
-    totalMoney:0,
-    list:[],
-    checkAllFlag:false,
-    //delFlag:false
+  el: "#container",
+  // 这里应该和文档一样用 #，而不是用 .
+  // 这里有 el 的名字叫做 container，那么在html里面就要有 id="container"，
+  // 这个div（或者其他标签）里面的所有东西 都是 vue 来管理的，符合vue的语法
+  // 格式要求： 一般在冒号后面都要有一个空格，写函数也是。
+  data: {
+    totalMoney: 0,
+    list: [],
+    checkAllFlag: false,
+    delFlag: true
   },
-  filters:{
-    formatMoney:function(value) {
+  filters: {
+    formatMoney: function(value) {
       return "￥" + value.toFixed(2);
     }
   },
-  mounted:function(){
-    this.$nextTick(function(){
+  mounted: function() {
+    this.$nextTick(function() {
         this.cartView();
     })
   },
