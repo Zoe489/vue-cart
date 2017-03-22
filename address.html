@@ -57,6 +57,7 @@
                     <ul>
                         <li
                           v-for="(item,index) in filteredAddress"
+                          v-el: addressList
                           :class="{'check' : curIndex==index}"
                           @click="checkMethod(index)">
                             <dl>

@@ -54,6 +54,8 @@ new Vue({
       if(item.isDefault==true && this.AddressList.length > 0) {
         this.AddressList[0].isDefault = true;
         this.curIndex = 0;
+        // const addressList = this.$els.addressList.getElementsByClassName('foods-item');
+        // TODO
         // this.checkMethod(0);
       }
     }
