@@ -7,11 +7,13 @@ var vm = new Vue({
   // 这里有 el 的名字叫做 container，那么在html里面就要有 id="container"，
   // 这个div（或者其他标签）里面的所有东西 都是 vue 来管理的，符合vue的语法
   // 格式要求： 一般在冒号后面都要有一个空格，写函数也是。
+  // 这是一个全新的，是我刚刚提交的那一版本
   data: {
     totalMoney: 0,
     list: [],
     checkAllFlag: false,
-    delFlag: true
+    delFlag: false,
+    curProduct:""
   },
   filters: {
     formatMoney: function(value) {
@@ -77,9 +79,20 @@ var vm = new Vue({
           _this.totalMoney += item.productPrice * item.productQuentity;
         }
       });
+    },
+    delProduct: function() {
+      //获取选中元素的索引值
+      var index = this.list.indexOf(this.curProduct);
+      // 从当前位置开始删除一个元素
+      this.list.splice(index,1);
+      //将delFlag重置为false
+      this.delFlag = false;
+    },
+    delComfirm: function(item) {
+      this.curProduct = item ;
+      this.delFlag = true;
     }
   }
 });
 
-// 这里是狮子更新的
 // PS html格式和其他各种代码都要求格式美观，这样才易于维护，缩进要正确，推荐使用【Tab】来缩进
